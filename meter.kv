@@ -1,0 +1,188 @@
+WindowManager:
+    MainWindow:
+    HOMEMETER:
+    WATERPUMPMETER:
+    HOUTPUT:
+    WOUTPUT:
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:2
+
+        Button:
+            text: "HOME"
+            on_release:
+                app.root.current = "H"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "WATER PUMP"
+            on_release:
+                app.root.current = "W"
+                root.manager.transition.direction = "left"
+
+<HOMEMETER>:
+    name: "H"
+    hbillr: hbillr
+    hmeterr: hmeterr
+
+    FloatLayout:
+        FloatLayout:
+            Label:
+                text:"Bill_Reading: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                pos_hint: {"x":0.1, "top":0.9}
+                size_hint: 0.2, 0.15
+
+            TextInput:
+                id: hbillr
+                font_size: (root.width**2 + root.height**2) / 14**4
+                multiline: False
+                pos_hint: {"x": 0.45 , "top":0.9}
+                size_hint: 0.2, 0.15
+
+            Label:
+                text:"Meter_Reading: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                pos_hint: {"x":0.1, "top":0.7}
+                size_hint: 0.2, 0.15
+
+            TextInput:
+                id : hmeterr
+                font_size: (root.width**2 + root.height**2) / 14**4
+                multiline: False
+                pos_hint: {"x": 0.45, "top":0.7}
+                size_hint: 0.2, 0.15
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Submit"
+            on_press: root.hbtn()
+            on_release:
+                app.root.current = "ho"
+                root.manager.transition.direction = "right"
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+<HOUTPUT>:
+    name: "ho"
+    hconsumed: hconsumed
+    hcost : hcost
+
+    FloatLayout:
+        FloatLayout:
+            Label:
+                id: hconsumed
+                text:"Untis: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.35, "top":0.8}
+                size_hint: 0.30, 0.15
+
+            Label:
+                id : hcost
+                text:"Cost: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.35, "top":0.6}
+                size_hint: 0.30, 0.15
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
+
+
+<WATERPUMPMETER>:
+    name: "W"
+    wbillr:wbillr
+    wmeterr:wmeterr
+
+    FloatLayout:
+        FloatLayout:
+            Label:
+                text:"Bill_Reading: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                pos_hint: {"x":0.1, "top":0.9}
+                size_hint: 0.2, 0.15
+
+            TextInput:
+                id: wbillr
+                font_size: (root.width**2 + root.height**2) / 14**4
+                multiline: False
+                pos_hint: {"x": 0.45 , "top":0.9}
+                size_hint: 0.2, 0.15
+
+            Label:
+                text:"Meter_Reading: "
+                font_size: (root.width**2 + root.height**2) / 14**4
+                pos_hint: {"x":0.1, "top":0.7}
+                size_hint: 0.2, 0.15
+
+            TextInput:
+                id : wmeterr
+                font_size: (root.width**2 + root.height**2) / 14**4
+                multiline: False
+                pos_hint: {"x": 0.45, "top":0.7}
+                size_hint: 0.2, 0.15
+
+        Button:
+            pos_hint:{"x":0.2,"y":0.05}
+            size_hint: 0.6, 0.2
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Submit"
+            on_press: root.wbtn()
+            on_release:
+                app.root.current = "wo"
+                root.manager.transition.direction = "right"
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<WOUTPUT>:
+    name : "wo"
+    wconsumed : wconsumed
+    wcost : wcost
+
+    FloatLayout:
+        FloatLayout:
+            Label:
+                id: wconsumed
+                text:"Untis: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.35, "top":0.8}
+                size_hint: 0.30, 0.15
+
+            Label:
+                id : wcost
+                text:"Cost: "
+                font_size: (root.width**2 + root.height**2) / 13**4
+                pos_hint: {"x":0.35, "top":0.6}
+                size_hint: 0.30, 0.15
+
+        Button:
+            pos_hint:{"x":0.3,"y":0.3}
+            size_hint: 0.4, 0.1
+            font_size: (root.width**2 + root.height**2) / 13**4
+            text: "Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
