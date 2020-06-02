@@ -28,17 +28,17 @@ def homeconsumed(a,b):
             s1 = self - 30
             if s1 > 70:
                 s2 = s1 - 70
-                return (30 * 3.75) + (s1 * 5.2) + (s2 * 7)
+                return (30 * 3.75) + (70 * 5.2) + (s2 * 6.75)
             else:
                 return (30 * 3.75) + (s1 * 5.2)
         else:
             return self * 3.75
 
     hconsumed = int(b) - int(a)
-    tax = (slab(hconsumed) + 200) * 0.05
+    tax = (slab(hconsumed) + 200) * 0.04
     hcost = slab(hconsumed) + 200 + tax + (hconsumed * .12)
     hcons=hconsumed
-    hcos=hcost
+    hcos=round(hcost,2)
 
 class HOUTPUT(Screen):
     hconsumed = ObjectProperty(None)
@@ -64,7 +64,7 @@ def waterconsumed(a, b):
             s1 = self - 30
             if s1 > 70:
                 s2 = s1 - 70
-                return (30 * 3.75) + (s1 * 5.2) + (s2 * 7)
+                return (30 * 3.75) + (70 * 5.2) + (s2 * 6.75)
             else:
                 return (30 * 3.75) + (s1 * 5.2)
         else:
@@ -72,10 +72,10 @@ def waterconsumed(a, b):
     wconsumed = int(b) - int(a)
     Fixed_charges = 95
     FAC = wconsumed * .12
-    tax = (slab(wconsumed) + Fixed_charges) * 0.05
+    tax = (slab(wconsumed) + Fixed_charges) * 0.04
     wcost = slab(wconsumed) + Fixed_charges + tax + FAC
     wcons= wconsumed
-    wcos= wcost
+    wcos= round(wcost,2)
 
 class WOUTPUT(Screen):
     wconsumed = ObjectProperty(None)
